@@ -1,28 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { scale, scaleIgnoreSysScale } from '../scale/index';
 
-const colors = {
-  dark: {
-    title: 'rgba(0,0,0,0.85)',
-    primary: 'rgba(0,0,0,0.65)',
-    secondary: 'rgba(0,0,0,0.45)',
-    disable: 'rgba(0,0,0,0.25)',
-    border: 'rgba(0,0,0,0.15)',
-    divides: 'rgba(0,0,0,0.09)',
-    background: 'rgba(0,0,0,0.04)',
-    tableHeader: 'rgba(0,0,0,0.02)'
-  },
-  light: {
-    title: 'rgba(255,255,255,0.85)',
-    primary: 'rgba(255,255,255,0.65)',
-    secondary: 'rgba(255,255,255,0.45)',
-    disable: 'rgba(255,255,255,0.25)',
-    border: 'rgba(255,255,255,0.15)',
-    divides: 'rgba(255,255,255,0.09)',
-    background: 'rgba(255,255,255,0.04)',
-    tableHeader: 'rgba(255,255,255,0.02)',
-  }
-};
 
 const styles = StyleSheet.create({
   title: {
@@ -61,25 +39,32 @@ const config = {
   scale,
   scalableItems: ['fontSize', 'lineHeight'],
   sizes: {
-    xxxl: 36,
-    xxl: 24,
-    xl: 18,
-    lager: 16,
+    huge: 36,
+    xxxLarger: 24,
+    xxLarge: 20,
+    xLarge: 18,
+    large: 16,
     normal: 14,
     small: 12,
     tiny: 10,
   },
   colors: {
-    title: 'rgba(0,0,0,0.85)',
-    primary: 'rgba(0,0,0,0.65)',
-    secondary: 'rgba(0,0,0,0.45)',
-    disable: 'rgba(0,0,0,0.25)',
-    border: 'rgba(0,0,0,0.15)',
-    divides: 'rgba(0,0,0,0.09)',
-    background: 'rgba(0,0,0,0.04)',
-    tableHeader: 'rgba(0,0,0,0.02)',
-    danger: 'red',
-    hsl: 'hsl(360, 50%, 50%)'
+    title: "rgba(0,0,0,0.85)",
+    primary: "rgba(0,0,0,0.65)",
+    secondary: "rgba(0,0,0,0.45)",
+    disabled: "rgba(0,0,0,0.25)",
+    border: "rgba(0,0,0,0.15)",
+    dividers: "rgba(0,0,0,0.09)",
+    white: "rgb(0,0,0)",
+    grey1: "rgba(255,255,255,0.85)",
+    grey2: "rgba(255,255,255,0.65)",
+    grey3: "rgba(255,255,255,0.45)",
+    grey4: "rgba(255,255,255,0.25)",
+    grey5: "rgba(255,255,255,0.15)",
+    grey6: "rgba(255,255,255,0.09)",
+    success: "#52c41a",
+    warning: "#faad14",
+    error: "#ff190c",
   },
   categories: {
     PrimaryTitle: {
