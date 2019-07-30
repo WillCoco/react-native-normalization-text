@@ -59,15 +59,26 @@ const styles = StyleSheet.create({
 
 const config = {
   scale,
-  scalableStyle: ['fontSize', 'lineHeight'],
-  forbidSysFontScale: true,
+  scalableItems: ['fontSize', 'lineHeight'],
   sizes: {
-    h1: 36,
-    h2: 34,
-    p1: 16
+    xxxl: 36,
+    xxl: 24,
+    xl: 18,
+    lager: 16,
+    normal: 14,
+    small: 12,
+    tiny: 10,
   },
   colors: {
-    red: 'red',
+    title: 'rgba(0,0,0,0.85)',
+    primary: 'rgba(0,0,0,0.65)',
+    secondary: 'rgba(0,0,0,0.45)',
+    disable: 'rgba(0,0,0,0.25)',
+    border: 'rgba(0,0,0,0.15)',
+    divides: 'rgba(0,0,0,0.09)',
+    background: 'rgba(0,0,0,0.04)',
+    tableHeader: 'rgba(0,0,0,0.02)',
+    danger: 'red',
     hsl: 'hsl(360, 50%, 50%)'
   },
   categories: {

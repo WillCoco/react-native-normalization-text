@@ -55,6 +55,9 @@ export default function makeText(defaultProps, defaultStyle, sizes, colors, scal
  * @return {Array} style - 缩放\颜色该改变之后的样式
  */
 function formatStyle(stylesList, scalableItems, darkness) {
+    if (Object.prototype.toString.call(scale) !== '[object Function]') {
+        throw new Error(`scale is not a Function`);
+    }
   console.log(stylesList, '处理前')
     const newL = stylesList.map((style) => {
         if (!style) {

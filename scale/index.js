@@ -5,6 +5,8 @@
  * --iphone 6
  * --width:750
  * --height:1334
+ *
+ * @flow
  */
 
 /*

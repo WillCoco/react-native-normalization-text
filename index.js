@@ -1,11 +1,12 @@
 import config from './configs/config';
+import defaultConfig from './configs/defaultConfig';
 import makeText from './makeText';
 import packageJson from './package';
 
 const RNText = init();
 
 function init() {
-    const { scale, categories = {}, colors, sizes } = config || {};
+    const {scale, categories, colors, sizes} = getConfig();
 
     // 默认RNText.Text
     const RNText = {
@@ -33,6 +34,18 @@ function init() {
         }
     });
     return RNText;
+}
+
+function getConfig() {
+    const { scale, categories, colors, sizes } = config || {};
+    const { scale: defaultScale, categories: defaultCategories, colors: defaultColors, sizes: defaultSizes } = defaultConfig || {};
+    return {
+        scale: scale || defaultScale || {},
+        categories: categories || defaultCategories || {},
+        colors: colors || defaultColors || {},
+        sizes: sizes || defaultSizes || {}
+    }
+
 }
 
 module.exports = RNText;

@@ -14,8 +14,7 @@
   "author": "WillCoco",
   "license": "",
   "dependencies": {
-    "jest": "^24.8.0",
-    "react-native": "^0.41.2"
+    "jest": "^24.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

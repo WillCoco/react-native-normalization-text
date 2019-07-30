@@ -66,8 +66,8 @@ function darkenByPercent(pColor, darken) {
  * @param {number} hexColor - 16进制颜色： 0x000000ff
  * @return {number} hexColorOpacity - 亮度： 0xff
  */
-function getHexOpacity(hexColor) {
-  return hexColor << 24 >>> 24;
+export function getHexOpacity(hexColor) {
+  return parseInt((hexColor).toString(16).substr(-2), 16);
 }
 
 /**
@@ -75,12 +75,8 @@ function getHexOpacity(hexColor) {
  * @param {number} hexColor - 16进制颜色： 0x000000ff
  * @return {number} hexColor - 色值： 0x000000
  */
-function getHexValue(hexColor) {
-  console.log(hexColor.toString(16), 7777779)
-  console.log(hexColor.toString(2), 7777779)
-  console.log((hexColor >>> 8).toString(2), 7777779)
-  console.log((hexColor >>> 8 << 8).toString(2), 7777779)
-  return Math.abs(hexColor >>> 8 << 8);
+export function getHexValue(hexColor) {
+  return parseInt(hexColor.toString(2).replace(/\d{8}$/, '00000000'), 2);
 }
 
 module.exports = darken;
