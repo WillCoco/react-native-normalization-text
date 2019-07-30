@@ -32,17 +32,22 @@ const colors = {
 };
 
 const styles = StyleSheet.create({
-  title: {
+  h1: {
+    fontSize: 32,
+    color: colors.title,
+    lineHeight: 40
+  },
+  h2: {
     fontSize: 24,
     color: colors.title,
     lineHeight: 32
   },
-  secondaryTitle: {
+  h3: {
     fontSize: 20,
     color: colors.title,
     lineHeight: 28
   },
-  tertiaryTitle: {
+  h4: {
     fontSize: 16,
     color: colors.title,
     lineHeight: 24
@@ -52,12 +57,12 @@ const styles = StyleSheet.create({
     color: colors.primary,
     lineHeight: 22
   },
-  secondaryText: {
+  smallText: {
     fontSize: 12,
     color: colors.secondary,
     lineHeight: 20
   },
-  captionText: {
+  tinyText: {
     fontSize: 10,
     color: colors.dark3,
     lineHeight: 18
@@ -70,23 +75,26 @@ const config = {
   sizes,
   colors,
   categories: {
-    PrimaryTitle: {
-      style: styles.title
+    H1: {
+      style: styles.h1
     },
-    SecondaryTitle: {
-      style: styles.secondaryTitle
+    H2: {
+      style: styles.h2
     },
-    TertiaryTitle: {
-      style: styles.tertiaryTitle
+    H3: {
+      style: styles.h3
+    },
+    H4: {
+      style: styles.h4
     },
     PrimaryText: {
       style: styles.primaryText
     },
-    SecondaryText: {
-      style: styles.secondaryText
+    SmallText: {
+      style: styles.smallText
     },
-    CaptionText: {
-      style: styles.captionText
+    TinyText: {
+      style: styles.tinyText
     }
   }
 };
