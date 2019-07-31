@@ -21,7 +21,6 @@ const darken = function (color, darken) {
 
   // 转换 0x000000ff 格式
   const pColor = normalizeColor(color);
-  console.log(pColor.toString(16), '转换前')
 
   if (pColor === undefined) {
     return color;
@@ -30,17 +29,13 @@ const darken = function (color, darken) {
   if (pColor === null) {
     return color;
   }
-  console.log(pColor, 'normalizeColor')
-  console.log(/^\s*[-]?\d*\s*$/.test(darken), darken, 77777701)
 
   if (/^\s*[-]?\d*\s*$/.test(darken)) {
     return darkenByNumber(pColor, darken);
   }
 
   if (/^\s*[-]?\d*\s*%\s*$/.test(darken)) {
-    const v = darkenByPercent(pColor, darken)
-    console.log(v.toString(16), '转换后')
-    return v;
+    return darkenByPercent(pColor, darken)
   }
 };
 
@@ -52,12 +47,9 @@ function darkenByNumber(pColor, darken) {
 
 function darkenByPercent(pColor, darken) {
   const value = parseInt(darken, 10) + 100;
-  console.log(value, 'getHexOpacity(pColor)')
   const percentValue = Math.round(getHexOpacity(pColor) * value / 100);
-  console.log(getHexOpacity(pColor), '获取后两位')
 
   const lightness = Math.min(255, Math.max(0, percentValue));
-  console.log(lightness, '获取后两位++')
   return getHexValue(pColor) + lightness;
 }
 

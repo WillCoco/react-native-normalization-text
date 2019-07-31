@@ -6,7 +6,7 @@ const config = {
   /**
    * scale 为字体缩放方法
    */
-  // scale,
+  // scale: (size) => (),
 
   /**
    * scalableItems Array<string>
@@ -15,16 +15,33 @@ const config = {
   // scalableItems: ['fontSize', 'lineHeight'],
 
   /**
-   *  sizes,
+   *  sizes中定义的尺寸可在Text组件中使用该props：
+   *  <Text size="large"></Text.H1>
+   *  <Text.H1 size="small"></Text.H1>
    */
-  //sizes,
+  /*
+  sizes: {
+    large: 26,
+    normal: 14,
+    small: 12
+  },
+  */
   /**
-   *  colors,
+   *  colors字段中定义的颜色可在Text组件中使用该props：
+   *  <Text color="dark"></Text.H1>
+   *  <Text.H1 color="error"></Text.H1>
    */
-  //colors,
+  /*
+  colors: {
+    dark: '#333',
+    grey: '#999,
+    error: '#ff0'
+  },
+  */
   /**
-   *  categories
+   *  categories 下定义H1、H2，及可在书写组件时使用H1、H2
    */
+  /*
   categories: {
     H1: {
       props: {},
@@ -34,7 +51,7 @@ const config = {
       props: {},
       style: {}
     }
-  }
+  }*/
 };
 
 export default config;

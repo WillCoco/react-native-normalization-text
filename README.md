@@ -7,9 +7,6 @@ react-native 字体大小、样式规范化管理，自适应缩放组件。
 
 根据不同设备屏幕尺寸调整字体大小，可自定义缩放规则，默认缩放见效果：
 
-**亮度微调**
-
-
 **字体管理**
 
 一次配置（或者使用默认配置），不在app中到处书写字体样式，也促进UI设计输出规范的字体。
@@ -29,17 +26,12 @@ react-native 字体大小、样式规范化管理，自适应缩放组件。
     ...
     
     // jsx
-    <Text >不带自定义样式的Text<Text>
-    <Text.h1>带h1预设样式、props的Text<Text>
-    <Text.h2>带h2预设样式、props的Text<Text>
+    <Text>不带自定义样式的Text<Text>
+    <Text.H1>带h1预设样式、props的Text<Text.H1>
     
     // 接受RN中Text的属性和配置中映射的size、color属性
     <Text size="large" color="danger" style={{...}}>带h2预设样式、props的Text<Text>
     
-    // 颜色亮度调整，color属性定义的 style中定义的都可被调整
-    <Text color="primary" darkess={100}>加深颜色</Text>
-    <Text color="primary" darkess={-100}>减淡颜色</Text>
-    <Text color="primary" darkess="-50%">百分比调整颜色</Text>
    
 Text除了rn提供的属性，新添以下属性:
 
@@ -55,12 +47,12 @@ Text除了rn提供的属性，新添以下属性:
  
 #### 默认配置：
 
-| 配置项         | type            | 描述                                                                                                                              | 默认值                          |
-| ---           | ---             | ---                                                                                                                              | ---                             |
-| scale         | Function        | 字体缩放方法                                                                                                                       | 见defaultConfig.scale           |
-| scalableItems | Array&lt;string&gt;  | 参与缩放的属性                                                                                                                     | \['fontSize', 'lightHeight']    |
-| sizes         | Object          | 罗列所有字号，sizes\[key]的key映射为Text的fontSize样式。<br>例：配置了sizes: {big: 36}，则可使用&lt;Text size="big" /&gt;                    | 见defaultConfig.sizes            |
-| colors        | Object          | 罗列所有字体颜色，类似sizes，colors\[key]的key映射为Text<br>的color样式。例：配置了colors: {danger: 'red'}，则可使用 &lt;Text size="big" /&gt; | 见defaultConfig.colors          |
+| 配置项         | type                 | 描述  		     | 默认值                         |
+| ---           | ---                  | ---              | ---                          |
+| scale         | Function             | 字体缩放方法       | 见defaultConfig.scale        |
+| scalableItems | Array&lt;string&gt;  | 参与缩放的属性  | \['fontSize', 'lightHeight']    |
+| sizes         | Object               | 罗列所有字号，sizes\[key]的key映射为Text的fontSize样式。例：配置了sizes: {big: 36}，则可使用&lt;Text size="big" /&gt;                    | 见defaultConfig.sizes            |
+| colors        | Object          | 罗列所有字体颜色，类似sizes，colors\[key]的key映射为Text的color样式。例：配置了colors: {danger: 'red'}，则可使用 &lt;Text size="big" /&gt; | 见defaultConfig.colors          |
 | categories    | Object          | 分级字体。比如在categories中预设H1,则可以使用&lt;Text.H1 /&gt;                                                                               | 见defaultConfig.categories      |
 
 
@@ -87,7 +79,7 @@ Text除了rn提供的属性，新添以下属性:
 | disabled  | rgba(0,0,0,0.25)       |
 | border    | rgba(0,0,0,0.15)       |
 | dividers  | rgba(0,0,0,0.09)       |
-| white     | rgb(0,0,0)             |
+| white     | rgb(255,255,255)       |
 | grey1     | rgba(255,255,255,0.85) |
 | grey2     | rgba(255,255,255,0.65) |
 | grey3     | rgba(255,255,255,0.45) |
@@ -99,10 +91,14 @@ Text除了rn提供的属性，新添以下属性:
 | error     | \#ff190c               |
 
 
-#### 默认可用字体规范：
-| name  | value |
-| ---  | ---   |
-|   |  |
+#### 默认可用字体：
+  - H1
+  - H2
+  - H3
+  - H4
+  - PrimaryText
+  - SmallText
+  - TinyText
  
 #### 自定义配置：
 
@@ -130,7 +126,7 @@ jsx中scalableItems > config.categories.h1.props.scalableItems > config.scalable
 
 ####  配置文件引用依赖：
 
-配置文件支持引用项目中的依赖，比如在需要引用项目中的样式：
+配置文件支持引用项目中的依赖，支持 require('..') 和 import res from '..'两种形式，比如在需要引用项目中的样式：
 
     // text.config.js
     import colors from '../../Theme/colors';
@@ -144,9 +140,10 @@ jsx中scalableItems > config.categories.h1.props.scalableItems > config.scalable
             error: colors.error
         }
     };
+    
 
 
 #### 颜色支持：
 
-颜色格式支持同[React Native](https://reactnative.cn/docs/colors/)支持的颜色格式
+同[React Native](https://reactnative.cn/docs/colors/)支持的颜色格式
 

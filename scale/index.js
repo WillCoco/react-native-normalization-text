@@ -5,8 +5,6 @@
  * --iphone 6
  * --width:750
  * --height:1334
- *
- * @flow
  */
 
 /*
@@ -46,7 +44,7 @@ const scaleRatio = Math.min(DEVICE_HEIGHT / heightPx, DEVICE_WIDTH / widthPx);  
  * @param {number} size - dp
  * return {number} size - dp
  */
-export function scale(size: number): Number{
+export function scale(size){
   return Math.round(size * scaleRatio);
 }
 
@@ -55,6 +53,6 @@ export function scale(size: number): Number{
  * @param {number} size - dp
  * return {number} size - dp
  */
-export function scaleIgnoreSysScale(size: number): Number{
+export function scaleIgnoreSysScale(size){
     return Math.round((size * scaleRatio) / fontScale);
 }

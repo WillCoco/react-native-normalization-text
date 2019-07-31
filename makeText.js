@@ -58,12 +58,10 @@ function formatStyle(stylesList, scalableItems, darkness) {
     if (Object.prototype.toString.call(scale) !== '[object Function]') {
         throw new Error(`scale is not a Function`);
     }
-  console.log(stylesList, '处理前')
-    const newL = stylesList.map((style) => {
+    return stylesList.map((style) => {
         if (!style) {
               return style;
         }
-        console.log(stylesList, 'stylesList')
         // 颜色亮度修改
         style = style.color ? {...style, color: darken(style.color, darkness)} : {...style};
 
@@ -75,7 +73,4 @@ function formatStyle(stylesList, scalableItems, darkness) {
         });
       return style;
     })
-
-  console.log(newL, '处理后')
-  return newL
 }
