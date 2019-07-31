@@ -52,7 +52,7 @@ Text除了rn提供的属性，新添以下属性:
 | scale         | Function             | 字体缩放方法       | 见defaultConfig.scale        |
 | scalableItems | Array&lt;string&gt;  | 参与缩放的属性  | \['fontSize', 'lightHeight']    |
 | sizes         | Object               | 罗列所有字号，sizes\[key]的key映射为Text的fontSize样式。例：配置了sizes: {big: 36}，则可使用&lt;Text size="big" /&gt;                    | 见defaultConfig.sizes            |
-| colors        | Object          | 罗列所有字体颜色，类似sizes，colors\[key]的key映射为Text的color样式。例：配置了colors: {danger: 'red'}，则可使用 &lt;Text size="big" /&gt; | 见defaultConfig.colors          |
+| colors        | Object          | 罗列所有字体颜色，类似sizes，colors\[key]的key映射为Text的color样式。例：配置了colors: {danger: 'red'}，则可使用 &lt;Text color="danger" /&gt; | 见defaultConfig.colors          |
 | categories    | Object          | 分级字体。比如在categories中预设H1,则可以使用&lt;Text.H1 /&gt;                                                                               | 见defaultConfig.categories      |
 
 
@@ -102,9 +102,9 @@ Text除了rn提供的属性，新添以下属性:
  
 #### 自定义配置：
 
-1.在项目根目录执行[初始化脚本](#脚本)，或者在根目录手动新建新建 **text.config.js**
-2.根据自身需求配置需要调整的配置项，可以只修改你需要修改的配置项，其余的默认配置项仍会起作用。
-3.在项目根目录下执行 [更新脚本](#脚本)让自定义配置生效，或者使用[重置脚本](#脚本)恢复默认配置。
+1. 在项目根目录执行[初始化脚本](#脚本)，或者在根目录手动新建新建 **text.config.js**
+2. 根据自身需求配置需要调整的配置项，可以只修改你需要修改的配置项，其余的默认配置项仍会起作用。
+3. 在项目根目录下执行 [更新脚本](#脚本)让自定义配置生效，或者使用[重置脚本](#脚本)恢复默认配置。
 
 #### 脚本
 
