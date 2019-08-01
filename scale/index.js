@@ -20,9 +20,11 @@ import {
     PixelRatio,
 } from 'react-native';
 
-const BASAL_PIXEL = 2;                 //iphone6的像素密度
-const BASAL_WIDTH = 750;               //iphone6的像素密度
-const BASAL_HEIGHT = 1334;             //iphone6的像素密度
+const BASAL_WIDTH = 375;               //iphone6的w: dp
+const BASAL_HEIGHT = 667;              //iphone6的h: dp
+
+const SCALE_UP_BOUND = 1.8;             // 最大放大倍数
+const SCALE_DOWN_BOUND = 0.8;           // 最小放大倍数
 
 const {
     width: DEVICE_WIDTH,
@@ -31,13 +33,14 @@ const {
 
 let fontScale = PixelRatio.getFontScale();   //返回字体大小缩放比例
 
-let pixelRatio = PixelRatio.get();           //当前设备的像素密度
 
-// px转换成dp
-const widthPx = BASAL_WIDTH / BASAL_PIXEL;
-const heightPx = BASAL_HEIGHT / BASAL_PIXEL;
-const scaleRatio = Math.min(DEVICE_HEIGHT / heightPx, DEVICE_WIDTH / widthPx);   //获取缩放比例
+const scaleRatio = Math.min(DEVICE_WIDTH / BASAL_WIDTH, DEVICE_HEIGHT / BASAL_HEIGHT);   //获取缩放比例
 
+const limit = function (scaleRatio) {
+    if (scaleRatio < SCALE_DOWN_BOUND) return SCALE_DOWN_BOUND;
+    if (scaleRatio > SCALE_UP_BOUND) return SCALE_UP_BOUND;
+    return scaleRatio;
+};
 
 /**
  * 根据占屏比例缩放
@@ -45,7 +48,7 @@ const scaleRatio = Math.min(DEVICE_HEIGHT / heightPx, DEVICE_WIDTH / widthPx);  
  * return {number} size - dp
  */
 export function scale(size){
-  return Math.round(size * scaleRatio);
+  return Math.round(size * limit(scaleRatio));
 }
 
 /**
@@ -54,5 +57,5 @@ export function scale(size){
  * return {number} size - dp
  */
 export function scaleIgnoreSysScale(size){
-    return Math.round((size * scaleRatio) / fontScale);
+    return Math.round((size * limit(scaleRatio)) / fontScale);
 }
