@@ -9,12 +9,12 @@ react-native 字体大小、样式规范化管理，自适应缩放组件。
 
 未适配：
 
-![图片](https://github.com/WillCoco/react-native-normalization-text/blob/master/images/unScaled.jpg)
+![图片](https://github.com/WillCoco/react-native-normalization-text/raw/master/images/unScaled.jpg)
 
 
 适配：
 
-![图片](https://github.com/WillCoco/react-native-normalization-text/blob/master/images/scaled.jpg)
+![图片](https://github.com/WillCoco/react-native-normalization-text/raw/master/images/scaled.jpg)
 
 
 **字体管理**
