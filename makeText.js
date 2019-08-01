@@ -74,3 +74,36 @@ function formatStyle(stylesList, scalableItems, darkness) {
       return style;
     })
 }
+
+function formatStyle(stylesList, scalableItems, darkness) {
+    if (Object.prototype.toString.call(scale) !== '[object Function]') {
+        throw new Error(`scale is not a Function`);
+    }
+
+   if (Object.prototype.toString.call(stylesList) !== '[object Array]') {
+      throw new Error(`stylesList is not an Array`);
+   }
+
+   // 从右往左样式重写
+   const formattedStyle = [];
+   const stylesListLen = stylesList.length || 0;
+   const remainStyles = [...stylesList];
+   for (let i = stylesListLen - 1; i >= 0; i--) {
+     const style = stylesList[i].color ? {...stylesList[i], color: darken(stylesList[i].color, darkness)} : {...stylesList[i]};
+
+     scalableItems.forEach(styleProp => {
+       if (style.hasOwnProperty(styleProp)) {
+         // 缩放
+         style[styleProp] = scale(style[styleProp]);
+
+         formattedStyle.push(style);
+         remainStyles.pop();
+
+         // scalableItems样式全部被重写
+         if(remainStyles.length === 0) {
+           return formattedStyle;
+         }
+       }
+     });
+   }
+}
