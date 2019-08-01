@@ -9,11 +9,13 @@ react-native 字体大小、样式规范化管理，自适应缩放组件。
 
 未适配：
 
-![图片](https://github.com/WillCoco/react-native-normalization-text/blob/master/images/scaled.jpg)
+![图片](https://github.com/WillCoco/react-native-normalization-text/blob/master/images/unScaled.jpg)
+
 
 适配：
 
-![图片](https://github.com/WillCoco/react-native-normalization-text/blob/master/images/unScaled.jpg)
+![图片](https://github.com/WillCoco/react-native-normalization-text/blob/master/images/scaled.jpg)
+
 
 **字体管理**
 
@@ -53,7 +55,7 @@ Text除了rn提供的属性，新添以下属性:
    
 ## 更多配置
  
-#### 默认配置：
+### 默认配置：
 
 | 配置项         | type                 | 描述  		     | 默认值                         |
 | ---           | ---                  | ---              | ---                          |
@@ -64,7 +66,7 @@ Text除了rn提供的属性，新添以下属性:
 | categories    | Object          | 分级字体。比如在categories中预设H1,则可以使用&lt;Text.H1 /&gt;                                                                               | 见defaultConfig.categories      |
 
 
-#### 默认sizes规范：
+### 默认sizes规范：
 
 | name      | value |
 | ---       | ---   |
@@ -77,7 +79,7 @@ Text除了rn提供的属性，新添以下属性:
 | small     | 12    |
 | tiny      | 10    |
 
-#### 默认colors规范：
+### 默认colors规范：
 
 | name  | value |
 | ---       | ---                    |
@@ -99,7 +101,7 @@ Text除了rn提供的属性，新添以下属性:
 | error     | \#ff190c               |
 
 
-#### 默认可用字体：
+### 默认可用字体：
   - H1
   - H2
   - H3
@@ -108,13 +110,13 @@ Text除了rn提供的属性，新添以下属性:
   - SmallText
   - TinyText
  
-#### 自定义配置：
+### 自定义配置：
 
 1. 在项目根目录执行[初始化脚本](#脚本)，或者在根目录手动新建新建 **text.config.js**
 2. 根据自身需求配置需要调整的配置项，可以只修改你需要修改的配置项，其余的默认配置项仍会起作用。
 3. 在项目根目录下执行 [更新脚本](#脚本)让自定义配置生效，或者使用[重置脚本](#脚本)恢复默认配置。
 
-#### 脚本
+### 脚本
 
 | script                                                              | 描述         |
 | ---                                                                 | ---          |
@@ -124,15 +126,15 @@ Text除了rn提供的属性，新添以下属性:
 
 可以将脚本添加至***package.json***的script字段中，方便调用。
  
-#### 样式优先级：
+### 样式优先级：
     
 jsx中style样式 > jsx中color、size属性映射样式 > config.categories.h1.style
 
-#### 属性配置优先级(scalableItems)：
+### 属性配置优先级(scalableItems)：
 
 jsx中scalableItems > config.categories.h1.props.scalableItems > config.scalableItems
 
-####  配置文件引用依赖：
+###  配置文件引用依赖：
 
 配置文件支持引用项目中的依赖，支持 require('..') 和 import res from '..'两种形式，比如在需要引用项目中的样式：
 
@@ -151,7 +153,7 @@ jsx中scalableItems > config.categories.h1.props.scalableItems > config.scalable
     
 
 
-#### 颜色支持：
+### 颜色支持：
 
 同[React Native](https://reactnative.cn/docs/colors/)支持的颜色格式
 
