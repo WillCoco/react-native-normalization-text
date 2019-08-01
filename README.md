@@ -32,15 +32,15 @@ react-native 字体大小、样式规范化管理，自适应缩放组件。
 
 ## 使用
     
-    import Text from 'react-native-normalization-text';  
+    import {Text, H1, H2} from 'react-native-normalization-text';  
     ...
     
     // jsx
     <Text>不带自定义样式的Text<Text>
-    <Text.H1>带h1预设样式、props的Text<Text.H1>
+    <H1>带h1预设样式、props的Text<H1>
     
     // 接受RN中Text的属性和配置中映射的size、color属性
-    <Text size="large" color="danger" style={{...}}>带h2预设样式、props的Text<Text>
+    <H2 size="large" color="danger" style={{...}}>带h2预设样式、props的Text<H2>
     
    
 Text除了rn提供的属性，新添以下属性:
