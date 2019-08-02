@@ -35,7 +35,9 @@ export default function makeText(defaultProps, defaultStyle, sizes, colors, scal
         // darken属性定义优先级
         const darkness = (props && props.darkness);
 
-        const formattedStyle = formatStyle([defaultStyle, propsStyle, props.style], finalScalableItems, darkness);
+        // 缩放
+        const style = Object.prototype.toString.call(props.style) === '[object Array]' ? StyleSheet.flatten(props.style) : props.style;
+        const formattedStyle = formatStyle([defaultStyle, propsStyle, style], finalScalableItems, darkness);
 
         return (
             <Text
@@ -58,6 +60,7 @@ function formatStyle(stylesList, scalableItems, darkness) {
     if (Object.prototype.toString.call(scale) !== '[object Function]') {
         throw new Error(`scale is not a Function`);
     }
+    let {length = 0} = scalableItems
     return stylesList.map((style) => {
         if (!style) {
               return style;
@@ -68,42 +71,12 @@ function formatStyle(stylesList, scalableItems, darkness) {
         // 大小缩放
         scalableItems.forEach(styleProp => {
           if (style.hasOwnProperty(styleProp)) {
-            style[styleProp] = scale(style[styleProp])
+            style[styleProp] = scale(style[styleProp]);
           }
+          length--;
         });
-      return style;
+        if (length <= 0) {
+            return style
+        };
     })
-}
-
-function formatStyle(stylesList, scalableItems, darkness) {
-    if (Object.prototype.toString.call(scale) !== '[object Function]') {
-        throw new Error(`scale is not a Function`);
-    }
-
-   if (Object.prototype.toString.call(stylesList) !== '[object Array]') {
-      throw new Error(`stylesList is not an Array`);
-   }
-
-   // 从右往左样式重写
-   const formattedStyle = [];
-   const stylesListLen = stylesList.length || 0;
-   const remainStyles = [...stylesList];
-   for (let i = stylesListLen - 1; i >= 0; i--) {
-     const style = stylesList[i].color ? {...stylesList[i], color: darken(stylesList[i].color, darkness)} : {...stylesList[i]};
-
-     scalableItems.forEach(styleProp => {
-       if (style.hasOwnProperty(styleProp)) {
-         // 缩放
-         style[styleProp] = scale(style[styleProp]);
-
-         formattedStyle.push(style);
-         remainStyles.pop();
-
-         // scalableItems样式全部被重写
-         if(remainStyles.length === 0) {
-           return formattedStyle;
-         }
-       }
-     });
-   }
 }
