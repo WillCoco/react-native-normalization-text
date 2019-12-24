@@ -19,7 +19,6 @@ export default function makeText(defaultProps, defaultStyle, sizes, colors, scal
         }
         if (props.color) {
             if (sizes && colors[props.color]) {
-                alert(colors[props.color])
                 propsStyle.color = colors[props.color];
             } else {
                 throw new Error(`未匹配到texts.colors:${colors[props.color]}`);
