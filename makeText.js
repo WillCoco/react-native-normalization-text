@@ -18,11 +18,12 @@ export default function makeText(defaultProps, defaultStyle, sizes, colors, scal
             }
         }
         if (props.color) {
-           if (sizes && colors[props.color]) {
-               propsStyle.color = sizes[props.color];
-           } else {
-               throw new Error(`未匹配到texts.colors:${sizes[props.color]}`);
-           }
+            if (sizes && colors[props.color]) {
+                alert(colors[props.color])
+                propsStyle.color = colors[props.color];
+            } else {
+                throw new Error(`未匹配到texts.colors:${colors[props.color]}`);
+            }
         }
 
         // 可缩放属性定义优先级 props.scalableItems > config.h1.scalableItems > config.scalableItems > defaultScalableItems
