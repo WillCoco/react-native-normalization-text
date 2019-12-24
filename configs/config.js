@@ -19,7 +19,7 @@ const colors = {
   dark1: "rgba(0,0,0,0.25)",
   dark2: "rgba(0,0,0,0.15)",
   dark3: "rgba(0,0,0,0.09)",
-  white: "rgb(0,0,0)",
+  white: "rgb(255,255,255)",
   grey1: "rgba(255,255,255,0.85)",
   grey2: "rgba(255,255,255,0.65)",
   grey3: "rgba(255,255,255,0.45)",
